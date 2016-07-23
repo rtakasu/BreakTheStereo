@@ -4,6 +4,7 @@
 	<head>
 		<title></title>
 		{% load staticfiles %}
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 		<script>
 		  SC.initialize({
@@ -12,8 +13,7 @@
 		  });
 		</script>
 		<script src= '{% static "breakTheStereoApp/api.js" %}'></script>
-
-
+		<script src= '{% static "breakTheStereoApp/app.js" %}'></script>
 
 	</head>
 
@@ -42,8 +42,6 @@
 			});
 
 		</script>
-</object>
-
 
 	</body>
 
