@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 #    'breakTheStereo.apps.BreakTheStereoConfig',
 
 INSTALLED_APPS = [
+    'breakTheStereoApp.apps.BreakTheStereoAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
