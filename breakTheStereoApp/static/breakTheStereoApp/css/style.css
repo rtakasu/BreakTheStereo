@@ -1,15 +1,17 @@
 body {
   background-color: #0B2027;
+  font-family: 'Asap', sans-serif;
 }
 
 #logo {
   display: inline-block;
-  width: 5%;
+  width: 10%;
   height: auto;
   vertical-align: middle;
 }
 
 #title {
+  font-size: 50px;
   display: inline-block;
   font-family: 'Anton', sans-serif;
   color: #70A9A1;
@@ -29,10 +31,32 @@ body {
   padding: 10px;
 }
 
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#reactions {
+  display: block;
+  margin: auto;
+}
+
 .reactionButton {
-  float: right;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   background-color: transparent;
   border: 0px;
+  float: right;
+}
+
+.reactionButton img {
+  display: block;
+  margin: auto;
+}
+
+.counter {
+  margin-top: 15%;
+  color: #70A9A1;
+  font-size: 20px;
+  text-align: left;
 }
