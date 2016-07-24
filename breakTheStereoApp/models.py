@@ -20,6 +20,7 @@ class Person(models.Model):
         max_length = 100
   )
   region = models.CharField(max_length = 100)
+  profile_pic_url = models.CharField(default='http://www.portraitprofessional.com/img/popin_2016.jpg',max_length = 500)
 
   def __str__(self):
     return self.name

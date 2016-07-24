@@ -1,15 +1,17 @@
 body {
   background-color: #0B2027;
+  font-family: 'Asap', sans-serif;
 }
 
 #logo {
   display: inline-block;
-  width: 5%;
+  width: 10%;
   height: auto;
   vertical-align: middle;
 }
 
 #title {
+  font-size: 50px;
   display: inline-block;
   font-family: 'Anton', sans-serif;
   color: #70A9A1;
@@ -29,10 +31,55 @@ body {
   padding: 10px;
 }
 
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.line {
+  width: 90%;
+  height: 3px;
+  background-color: #40798C;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#reactions, #suggestions {
+  display: block;
+  margin: auto;
+}
+
 .reactionButton {
-  float: right;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   background-color: transparent;
   border: 0px;
+  float: right;
+}
+
+.reactionButton img {
+  display: block;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+}
+
+#partyparrot {
+  width: 40px;
+  height: auto;
+}
+
+.counter {
+  margin-top: 15%;
+  color: #70A9A1;
+  font-size: 20px;
+  text-align: left;
+}
+
+#suggestionHeader {
+  margin-top: 15px;
+  color: #70A9A1;
+  font-size: 20px;
+  text-align: center;
 }

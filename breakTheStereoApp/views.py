@@ -30,6 +30,21 @@ def profile(request,person_id):
     #This should be changed to a template
   return HttpResponse("Profile info will go here: %s" % person_id)
 
+def addSong(request):
+  if request.method == "POST":
+    song = False
+    try:
+      song = Song.objects.get(pk = request.POST['song'])
+    except:
+      song = Song(pk = int(request.POST['song']), name = request.POST["name"], artist = request.POST["artist"], genre= request.POST["genre"])
+    if song:
+      song.save()
+      return HttpResponse(status=201)
+    else:
+      return Http404("Invalid Song")
+  else:
+    return redirect("/bts")
+
 def addReaction(request):
   if request.method == "POST":
 
@@ -65,7 +80,7 @@ def addReaction(request):
         reaction.rock += 1
       elif emotion_name == "romantic":
         reaction.romantic += 1
-    
+
       reaction.save()
       #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
       return HttpResponse(status=201)
@@ -139,7 +154,7 @@ def similar(request):
   jsonRes = {}
   for i in range(len(topFive)):
     p = topFive[i][0]
-    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region}
+    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url }
   return JsonResponse(jsonRes)
 
 
