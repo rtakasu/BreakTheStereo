@@ -147,9 +147,22 @@ function loadReactionData(songId) {
 	    data: {"person": 1, "song":songId},
 	    success: function(data){
 	      
-	    	
+	    	$("#smileCounter").text(data["smile"])
+	    	$("#cryCounter").text(data["cry"])
+	    	$("#aversionCounter").text(data["aversion"])
+	    	$("#danceCounter").text(data["dance"])
+	    	$("#chillCounter").text(data["chill"])
+	    	$("#rockCounter").text(data["rock"])
+	    	$("#romanticCounter").text(data["romantic"])
 
-	    	console.log(data);
+	    }, error: function() {
+	    	$("#smileCounter").text(0)
+	    	$("#cryCounter").text(0)
+	    	$("#aversionCounter").text(0)
+	    	$("#danceCounter").text(0)
+	    	$("#chillCounter").text(0)
+	    	$("#rockCounter").text(0)
+	    	$("#romanticCounter").text(0)
 	    }
 	});
 
@@ -157,6 +170,7 @@ function loadReactionData(songId) {
 
 }
 
+// Populating Database
 $.ajax({
     type: "POST",
     url: "/bts/addSong/",
@@ -165,6 +179,23 @@ $.ajax({
       console.log(data);
     }
 });
+
+function loadSimilar(){
+
+	$.ajax({
+	    type: "GET",
+	    url: "/bts/similar/",
+	    data: {"person": 1},
+	    success: function(data){
+
+	    	
+
+	    }
+	});
+
+}
+
+
 
 function postEmotion(song, emotion) {
 
