@@ -30,7 +30,7 @@ $.ajaxSetup({
 
 var widget1
 
-SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
+SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/s-track-boa-1', {
 	element: document.getElementById('putTheWidgetHere'),
 	show_comments:false,
 	show_user:false,
