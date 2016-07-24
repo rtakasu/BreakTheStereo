@@ -132,3 +132,8 @@ body {
   font-size: 18px;
   text-align: left;
 }
+
+#userPic {
+  float: right;
+  margin-top: 10px;
+}

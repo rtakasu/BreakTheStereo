@@ -296,5 +296,5 @@ $.ajax({
    }
 });
 
-
+$("#userPic").css("background-image", "url('/static/breakTheStereoApp/images/mr2hrsofsleep.jpeg')");
 
