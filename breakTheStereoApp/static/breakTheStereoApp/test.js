@@ -38,3 +38,14 @@ $.ajax({
     }
 });
 
+//Get Reaction History
+$.ajax({
+    type: "GET",
+    url: "/bts/history/",
+    data: {"person": 1, "song":1},
+    success: function(data){
+      console.log(data[1]);
+    }
+});
+
+
