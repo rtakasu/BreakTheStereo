@@ -26,11 +26,13 @@ body {
   top: 0;
   left: 50%;
   height: 100%;
+  padding: 10px;
 }
 
 .reactionButton {
-  width: 50px;
-  height: 50px;
+  float: right;
+  width: 55px;
+  height: 55px;
   background-color: transparent;
   border: 0px;
 }
