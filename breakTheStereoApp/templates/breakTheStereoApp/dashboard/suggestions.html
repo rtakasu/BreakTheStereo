@@ -1,9 +1,32 @@
 <div id="suggestedPeople">
-  <p id="suggestionHeader">
-    Check out these people with similar music taste!
-  </p>
-  {% include "breakTheStereoApp/dashboard/suggestedPerson.html" %}
-  {% include "breakTheStereoApp/dashboard/suggestedPerson.html" %}
-  {% include "breakTheStereoApp/dashboard/suggestedPerson.html" %}
-  {% include "breakTheStereoApp/dashboard/suggestedPerson.html" %}
+	<p id="suggestionHeader">
+		Check out these people with similar music taste!
+	</p>
+
+	{% load staticfiles %}
+
+	<div class="person">
+		<img class="personImage" src="{% static 'breakTheStereoApp/images/smile.png' %}" />
+			<div class="personInfo" id="person1Info">
+				<div class="personName" id="person1Name">Party Parrot</div>
+				<div class="personScore" id="person1Score">Score: 100</div>
+			</div>
+	</div>
+
+	<div class="person">
+		<img class="personImage" src="{% static 'breakTheStereoApp/images/smile.png' %}" />
+			<div class="personInfo" id="person2Info">
+				<div class="personName" id="person2Name">Party Parrot</div>
+				<div class="personScore" id="person2Score">Score: 100</div>
+			</div>
+	</div>
+
+	<div class="person">
+		<img class="personImage" src="{% static 'breakTheStereoApp/images/smile.png' %}" />
+			<div class="personInfo" id="person3Info">
+				<div class="personName" id="person3Name">Party Parrot</div>
+				<div class="personScore" id="person3Score">Score: 100</div>
+			</div>
+	</div>
+
 </div>

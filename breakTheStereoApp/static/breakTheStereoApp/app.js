@@ -185,16 +185,23 @@ function loadSimilar(){
 	$.ajax({
 	    type: "GET",
 	    url: "/bts/similar/",
-	    data: {"person": 1},
+	    data: {"person": 2},
 	    success: function(data){
 
-	    	
+	    	$("#person1Name").text(data[0]["name"])
+	    	$("#person1Score").text(data[0]["score"])
+	    	$("#person2Name").text(data[1]["name"])
+	    	$("#person2Score").text(data[1]["score"])
+	    	$("#person3Name").text(data[2]["name"])
+	    	$("#person3Score").text(data[2]["score"])
+
+	    	console.log(data)
 
 	    }
 	});
 
 }
-
+loadSimilar()
 
 
 function postEmotion(song, emotion) {
