@@ -36,7 +36,16 @@ body {
   margin-bottom: 10px;
 }
 
-#reactions {
+.line {
+  width: 90%;
+  height: 3px;
+  background-color: #40798C;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#reactions, #suggestions {
   display: block;
   margin: auto;
 }
@@ -52,6 +61,13 @@ body {
 .reactionButton img {
   display: block;
   margin: auto;
+  width: 40px;
+  height: 40px;
+}
+
+#partyparrot {
+  width: 40px;
+  height: auto;
 }
 
 .counter {
@@ -59,4 +75,11 @@ body {
   color: #70A9A1;
   font-size: 20px;
   text-align: left;
+}
+
+#suggestionHeader {
+  margin-top: 15px;
+  color: #70A9A1;
+  font-size: 20px;
+  text-align: center;
 }
