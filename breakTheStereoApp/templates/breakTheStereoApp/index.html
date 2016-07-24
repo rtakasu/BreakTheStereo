@@ -15,8 +15,7 @@
 		  });
 		</script>
 		<script src= '{% static "breakTheStereoApp/api.js" %}'></script>
-		<script src= '{% static "breakTheStereoApp/app.js" %}'></script>
-
+		
 	</head>
 
 	<body>
@@ -24,7 +23,9 @@
 		<h1> Break The Stereo </h1>
 
 		{% include "breakTheStereoApp/musicWidget.html" %}
-    {% include "breakTheStereoApp/dashboard.html" %}
+    	{% include "breakTheStereoApp/dashboard.html" %}
+    	
+    	<script src= '{% static "breakTheStereoApp/app.js" %}'></script>
 
 	</body>
 
