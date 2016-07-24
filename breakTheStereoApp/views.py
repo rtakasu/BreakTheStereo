@@ -32,15 +32,43 @@ def profile(request,person_id):
 
 def addReaction(request):
   if request.method == "POST":
-    print "request.post is",request.POST
 
     person = get_object_or_404(Person,pk = request.POST["person"])
     song = get_object_or_404(Song,pk = request.POST["song"])
     emotion_name = request.POST["emotion"]
-    reaction = Reaction(song= song, person= person,emotion=emotion_name,created_at= timezone.now())
-    reaction.save()
-    #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
-    return HttpResponse(status=201)
+    reaction = False
+    try:
+      reaction = Reaction.objects.get(person_id = person.id, song_id = song.id)
+    except:
+      reaction = Reaction(song= song, person= person,created_at= timezone.now())
+    # EMOTION_CHOICES = (
+    #   ("smile","smile"),
+    #   ("cry","cry"),
+    #   ("angry","angry"),
+    #   ("dance","dance"),
+    #   ("chill","chill"),
+    #   ("rock","rock"),
+    #   ("romantic","romantic")
+    # )
+    if reaction:
+      if emotion_name == "smile":
+        reaction.smile += 1
+      elif emotion_name == "cry":
+        reaction.cry += 1
+      elif emotion_name == "angry":
+        reaction.angry += 1
+      elif emotion_name == "dance":
+        reaction.dance += 1
+      elif emotion_name == "chill":
+        reaction.chill += 1
+      elif emotion_name == "rock":
+        reaction.rock += 1
+      elif emotion_name == "romantic":
+        reaction.romantic += 1
+    
+      reaction.save()
+      #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
+      return HttpResponse(status=201)
   else:
     return redirect("/bts")
 
@@ -49,12 +77,9 @@ def reactionHistory(request):
   if request.method == "GET":
     person = get_object_or_404(Person,pk = request.GET["person"])
     song = get_object_or_404(Song,pk = request.GET["song"])
-    reactions = person.reaction_set.filter(song_id=song.id)
-    rz = {}
-    for i in range(len(reactions)):
-      r = reactions[i]
-      rz[i] = {"emotion": r.emotion,"song_id":r.song_id,"person_id":r.person_id}
-    return JsonResponse(rz)
+    r = person.reaction_set.filter(song_id=song.id)[0]
+    reaction = {"smile":r.smile,"cry":r.cry,"angry":r.angry,"dance":r.dance,"rock":r.rock,"chill":r.chill,"romantic":r.romantic}
+    return JsonResponse(reaction)
 
 # Get "Stats/demographics" for song
 AGE_RANGE = 5
@@ -73,20 +98,57 @@ def differentDemoScore(person,other):
     score += 1
   return score
 
+#Returns normalized array of [smile,cry,angry,dance,rock,chill,romantic]
+def normalizedArray(reaction):
+  arr = [reaction.smile,reaction.cry,reaction.angry,reaction.dance,reaction.rock,reaction.chill,reaction.romantic]
+  total = sum(arr)
+  for i in range(len(arr)):
+    arr[i] = float(arr[i])/float(total)
+  return arr
+
+
 def similarMusicScore(person,other):
   score = 0
   songs = person.song_set.distinct()
   # for each song that person 1 has listened to, compare person 1's reactions against person 2's
   for song in songs:
-    personReactions = song.reaction_set.all().filter(person_id = person.id)
-    otherReactions = song.reaction_set.all().filter(person_id = other.id)
+    personReaction = song.reaction_set.all().filter(person_id = person.id)[0]
+    otherReaction = song.reaction_set.all().filter(person_id = other.id)[0]
+    pArray = normalizedArray(personReaction)
+    oArray = normalizedArray(otherReaction)
+    diff = sum([ abs(pArray[i]-oArray[i]) for i in range(len(pArray))])
+    score += diff
+  return score
 
-  if
+
+
+
+         
+
 
 # Get Suggested/similar users
 def similar(request):
   #Create distance score between user and other users
+  person = Person.objects.get(pk=request.GET["person"])
   others = Person.objects.all().exclude(pk=request.GET["person"])
+  scores = []
+  for other in others:
+    similarScore = differentDemoScore(person,other) - similarMusicScore(person,other)
+    scores.append((other,similarScore))
+
+  ordered = sorted(scores, key=lambda x: x[1])
+  #return top 5
+
+  topFive = list(reversed(ordered[-5:]))
+
+  jsonRes = {}
+  for i in range(len(topFive)):
+    p = topFive[i][0]
+    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region}
+  return JsonResponse(jsonRes)
+
+
+
 
 
 

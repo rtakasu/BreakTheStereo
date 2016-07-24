@@ -101,11 +101,11 @@ $( "#romanticButton" ).click(function() {
 });
 
 
-$.ajax({
-    type: "POST",
-    url: "/bts/addReaction/",
-    data: {"person": 1, "song":1, "emotion": "sad"},
-}).done(function(data){console.log("this is the data"); console.log(data);});
+// $.ajax({
+//     type: "POST",
+//     url: "/bts/addReaction/",
+//     data: {"person": 1, "song":1, "emotion": "sad"},
+// }).done(function(data){console.log("this is the data"); console.log(data);});
 
 
 function postEmotion(position, emotion) {
