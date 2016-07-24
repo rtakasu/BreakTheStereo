@@ -28,6 +28,7 @@ $.ajaxSetup({
     }
 });
 
+// ADD REACTION
 $.ajax({
     type: "POST",
     url: "/bts/addReaction/",
