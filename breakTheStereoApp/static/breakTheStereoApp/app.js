@@ -83,11 +83,11 @@ $( "#aversionButton" ).click(function() {
 	
 	widget1.getCurrentSound(function(song){
 		
-		console.log("aversion", song.id)
+		console.log("angry", song.id)
 		var counter = parseInt($("#aversionCounter").text());
 		$("#aversionCounter").text(counter+1)
 
-		postEmotion(song.id,"aversion")
+		postEmotion(song.id,"angry")
 	})
 });
 
@@ -149,7 +149,7 @@ function loadReactionData(songId) {
 	      
 	    	$("#smileCounter").text(data["smile"])
 	    	$("#cryCounter").text(data["cry"])
-	    	$("#aversionCounter").text(data["aversion"])
+	    	$("#aversionCounter").text(data["angry"])
 	    	$("#danceCounter").text(data["dance"])
 	    	$("#chillCounter").text(data["chill"])
 	    	$("#rockCounter").text(data["rock"])
