@@ -131,6 +131,7 @@ def similarMusicScore(person,other):
     otherReaction = song.reaction_set.all().filter(person_id = other.id)[0]
     pArray = normalizedArray(personReaction)
     oArray = normalizedArray(otherReaction)
+    print "person array: ",pArray,"other array: ",oArray
     diff = sum([ abs(pArray[i]-oArray[i]) for i in range(len(pArray))])
     score += diff
   return score
@@ -154,7 +155,8 @@ def similar(request):
   jsonRes = {}
   for i in range(len(topFive)):
     p = topFive[i][0]
-    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url }
+    score = topFive[i][1]
+    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url,"score":score }
   return JsonResponse(jsonRes)
 
 

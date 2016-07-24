@@ -64,6 +64,9 @@ $( "#smileButton" ).click(function() {
 		postEmotion(song.id,"smile")
 
 	})
+  console.log("calling load similar")
+  loadSimilar();
+  console.log("should trigger loadSimilar")
 
 });
 
@@ -187,15 +190,15 @@ function loadSimilar(){
 	    url: "/bts/similar/",
 	    data: {"person": 2},
 	    success: function(data){
-
+        var total = 8;
 	    	$("#person1Name").text(data[0]["name"])
-	    	$("#person1Score").text(data[0]["score"])
+	    	$("#person1Score").text("Score: " + (Math.round(data[0]["score"])*100/total)+"%")
 			$("#person1Pic").css('background-image', "url('" + data[0]["profile_pic"] + "')")
 	    	$("#person2Name").text(data[1]["name"])
-	    	$("#person2Score").text(data[1]["score"])
+	    	$("#person2Score").text("Score: " + (Math.round(data[1]["score"])*100/total)+"%")
 			$("#person2Pic").css('background-image', "url('" + data[1]["profile_pic"] + "')")
 	    	$("#person3Name").text(data[2]["name"])
-	    	$("#person3Score").text(data[2]["score"])
+	    	$("#person3Score").text("Score: " + (Math.round(data[2]["score"])*100/total)+"%")
 			$("#person3Pic").css('background-image', "url('" + data[2]["profile_pic"] + "')")
 
 	    	console.log(data)
