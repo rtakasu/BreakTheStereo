@@ -30,12 +30,13 @@ body {
 }
 
 #putTheWidgetHere {
-  height: 100%;
+  min-height: 75vh;
 }
 
 #dashboard {
   height: 100%;
   padding: 10px;
+  max-height: 75vh;
 }
 
 .row {
@@ -55,6 +56,7 @@ body {
 #reactions {
   display: block;
   margin: auto;
+  min-height: 20vh;
 }
 
 .reactionButton {
@@ -88,7 +90,7 @@ body {
   display: block;
   margin: auto;
   overflow-y: scroll;
-  height: 400px;
+  height: 50vh;
 }
 
 #suggestionHeader {
