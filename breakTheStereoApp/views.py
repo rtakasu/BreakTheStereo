@@ -30,6 +30,21 @@ def profile(request,person_id):
     #This should be changed to a template
   return HttpResponse("Profile info will go here: %s" % person_id)
 
+def addSong(request):
+  if request.method == "POST":
+    song = False
+    try:
+      song = Song.objects.get(pk = request.POST['song'])
+    except:
+      song = Song(pk = int(request.POST['song']), name = request.POST["name"], artist = request.POST["artist"], genre= request.POST["genre"])
+    if song:
+      song.save()
+      return HttpResponse(status=201)
+    else:
+      return Http404("Invalid Song")
+  else:
+    return redirect("/bts")
+
 def addReaction(request):
   if request.method == "POST":
 
