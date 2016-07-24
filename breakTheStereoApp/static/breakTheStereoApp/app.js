@@ -61,68 +61,98 @@ $( "#smileButton" ).click(function() {
 });
 
 $( "#cryButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		var song = getCurrentSong();
-		//postEmotion(position,"cry")
-		console.log(position,"cry")
-		var counter = parseInt($("#cryCounter").text());
-		$("#cryCounter").text(counter+1)
+
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"cry", song.id)
+			var counter = parseInt($("#cryCounter").text());
+			$("#cryCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#aversionButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		var song = getCurrentSong();
-		//postEmotion(position,"aversion")
-		console.log(position,"aversion")
-		var counter = parseInt($("#aversionCounter").text());
-		$("#aversionCounter").text(counter+1)
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"aversion", song.id)
+			var counter = parseInt($("#aversionCounter").text());
+			$("#aversionCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#danceButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		var song = getCurrentSong();
-		//postEmotion(position,"dance")
-		console.log(position,"dance")
-		var counter = parseInt($("#danceCounter").text());
-		$("#danceCounter").text(counter+1)
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"dance", song.id)
+			var counter = parseInt($("#danceCounter").text());
+			$("#danceCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#chillButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		var song = getCurrentSong();
-		//postEmotion(position,"chill")
-		console.log(position,"chill")
-		var counter = parseInt($("#chillCounter").text());
-		$("#chillCounter").text(counter+1)
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"chill", song.id)
+			var counter = parseInt($("#chillCounter").text());
+			$("#chillCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#rockButton" ).click(function() {
-	widget1.getPosition(function(position){
+	
+	widget1.getCurrentSound(function(song){
 		
-		var song = getCurrentSong();
-		//postEmotion(position,"rock")
-		console.log(position,"rock")
-		var counter = parseInt($("#rockCounter").text());
-		$("#rockCounter").text(counter+1)
+		widget1.getPosition(function(position){
+
+			console.log(position,"rock", song.id)
+			var counter = parseInt($("#rockCounter").text());
+			$("#rockCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#romanticButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		var song = getCurrentSong();
-		//postEmotion(position,"romantic")
-		console.log(position,"romantic", song)
-		var counter = parseInt($("#romanticCounter").text());
-		$("#romanticCounter").text(counter+1)
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"romantic", song.id)
+			var counter = parseInt($("#romanticCounter").text());
+			$("#romanticCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
@@ -144,6 +174,7 @@ function postEmotion(position, emotion) {
 	      console.log("response back is:" + data);
 	    }
 	});
+	
 }
 
 
