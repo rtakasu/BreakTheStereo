@@ -1,0 +1,29 @@
+body {
+  background-color: #0B2027;
+}
+
+#logo {
+  display: inline-block;
+  width: 5%;
+  height: auto;
+  vertical-align: middle;
+}
+
+#title {
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  color: #70A9A1;
+  vertical-align: middle;
+}
+
+#putTheWidgetHere {
+  height: 100%;
+}
+
+#dashboard {
+  background-color: #0B4F6C;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+}
