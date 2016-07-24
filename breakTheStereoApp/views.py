@@ -80,7 +80,7 @@ def addReaction(request):
         reaction.rock += 1
       elif emotion_name == "romantic":
         reaction.romantic += 1
-    
+
       reaction.save()
       #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
       return HttpResponse(status=201)
@@ -154,7 +154,7 @@ def similar(request):
   jsonRes = {}
   for i in range(len(topFive)):
     p = topFive[i][0]
-    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region}
+    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url }
   return JsonResponse(jsonRes)
 
 
