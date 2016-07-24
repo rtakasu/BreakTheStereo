@@ -290,7 +290,7 @@ $.ajax({
 $.ajax({
    type: "POST",
    url: "/bts/addSong/",
-   data: {"song":48836861,"name": "Buffalo Soldier","artist": "Bob Marley", "genre":"Classical"},
+   data: {"song":210433784,"name": "Roses","artist": "Chainsmokers", "genre":"Classical"},
    success: function(data){
      console.log(data);
    }
