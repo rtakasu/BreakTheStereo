@@ -9,18 +9,20 @@ class Person(models.Model):
   race = models.CharField(max_length = 100)
   MALE = "MALE"
   FEMALE = "FEMALE"
-  OTHER = "OTHER"
   GENDER_CHOICES = (
     (MALE, 'Male'),
     (FEMALE,'Female'),
-    (OTHER, 'Neither')
+    ("Agender", "Agender"),
+    ("Cis","Cis"),
+    ("Trans","Trans"),
+    ("Not Listed","Not Listed")
   )
   gender = models.CharField(
         choices = GENDER_CHOICES,
         max_length = 100
   )
   region = models.CharField(max_length = 100)
-  profile_pic_url = models.CharField(default='http://www.portraitprofessional.com/img/popin_2016.jpg',max_length = 500)
+  profile_pic_url = models.CharField(default='http://static1.squarespace.com/static/549eea22e4b0d99a53dff15b/t/55119aa7e4b057ed57a2985f/1427217064918/',max_length = 500)
 
   def __str__(self):
     return self.name
