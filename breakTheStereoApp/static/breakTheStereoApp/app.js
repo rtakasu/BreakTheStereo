@@ -30,7 +30,7 @@ $.ajaxSetup({
 
 var widget1
 
-SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
+SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/s-track-boa-1', {
 	element: document.getElementById('putTheWidgetHere'),
 	show_comments:false,
 	show_user:false,
@@ -45,58 +45,114 @@ SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
 });
 
 $( "#smileButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"smile")
-		console.log(position,"smile")
+
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"smile", song.id)
+			var counter = parseInt($("#smileCounter").text());
+			$("#smileCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#cryButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"cry")
-		console.log(position,"cry")
+
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"cry", song.id)
+			var counter = parseInt($("#cryCounter").text());
+			$("#cryCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#aversionButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"aversion")
-		console.log(position,"aversion")
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"aversion", song.id)
+			var counter = parseInt($("#aversionCounter").text());
+			$("#aversionCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#danceButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"dance")
-		console.log(position,"dance")
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"dance", song.id)
+			var counter = parseInt($("#danceCounter").text());
+			$("#danceCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#chillButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"chill")
-		console.log(position,"chill")
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"chill", song.id)
+			var counter = parseInt($("#chillCounter").text());
+			$("#chillCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#rockButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"rock")
-		console.log(position,"rock")
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"rock", song.id)
+			var counter = parseInt($("#rockCounter").text());
+			$("#rockCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#romanticButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"romantic")
-		console.log(position,"romantic")
+	
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"romantic", song.id)
+			var counter = parseInt($("#romanticCounter").text());
+			$("#romanticCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
@@ -118,8 +174,7 @@ function postEmotion(position, emotion) {
 	      console.log("response back is:" + data);
 	    }
 	});
-
-
+	
 }
 
 

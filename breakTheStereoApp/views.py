@@ -121,11 +121,6 @@ def similarMusicScore(person,other):
   return score
 
 
-
-
-         
-
-
 # Get Suggested/similar users
 def similar(request):
   #Create distance score between user and other users
