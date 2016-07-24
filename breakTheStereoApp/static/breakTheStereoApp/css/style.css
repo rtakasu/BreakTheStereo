@@ -108,14 +108,15 @@ body {
 }
 
 .personImage {
+  display: block;
   float: left;
   border: solid 5px #70A9A1;
   border-radius: 50px;
-  max-width: 100px;
-  max-height: 100px;
-  min-width: 100px;
-  min-height: 100px;
-  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .personInfo {
