@@ -81,8 +81,6 @@ def similarMusicScore(person,other):
     personReactions = song.reaction_set.all().filter(person_id = person.id)
     otherReactions = song.reaction_set.all().filter(person_id = other.id)
 
-  if
-
 # Get Suggested/similar users
 def similar(request):
   #Create distance score between user and other users
