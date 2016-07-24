@@ -1,0 +1,16 @@
+body {
+  background-color: #0B2027;
+}
+
+#logo {
+  display: inline-block;
+  width: 5%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+#title {
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  color: #70A9A1;
+}
