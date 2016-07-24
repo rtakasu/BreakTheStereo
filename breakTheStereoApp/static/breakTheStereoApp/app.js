@@ -42,6 +42,15 @@ SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/breakthestereo', {
 }).then(function(embed){
 	var iframeElement   = document.querySelector('iframe');
 	widget1 = SC.Widget(iframeElement);
+	widget1.bind(SC.Widget.Events.PLAY, function(){
+
+		widget1.getCurrentSound(function(song){
+
+			loadReactionData(song.id);
+
+		})
+
+	});
 });
 
 $( "#smileButton" ).click(function() {
@@ -128,6 +137,33 @@ $( "#romanticButton" ).click(function() {
 
 		postEmotion(song.id,"romantic")
 	})
+});
+
+function loadReactionData(songId) {
+
+	$.ajax({
+	    type: "GET",
+	    url: "/bts/history/",
+	    data: {"person": 1, "song":songId},
+	    success: function(data){
+	      
+	    	
+
+	    	console.log(data);
+	    }
+	});
+
+	console.log(songId)
+
+}
+
+$.ajax({
+    type: "POST",
+    url: "/bts/addSong/",
+    data: {"song":254216170,"name": "Rhapsody in Blue","artist": "George Gershwin", "genre":"Classical"},
+    success: function(data){
+      console.log(data);
+    }
 });
 
 function postEmotion(song, emotion) {
