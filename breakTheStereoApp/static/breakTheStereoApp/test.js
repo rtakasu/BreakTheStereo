@@ -58,5 +58,16 @@ $.ajax({
     }
 });
 
+//Upload Soundcloud song
+
+$.ajax({
+    type: "POST",
+    url: "/bts/addSong/",
+    data: {"song":7,"name": "Lollipop","artist": "Lil Wayne", "genre":"rap"},
+    success: function(data){
+      console.log(data);
+    }
+});
+
 
 

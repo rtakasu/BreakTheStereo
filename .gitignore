@@ -1,3 +1,4 @@
 .DS_Store
 breakTheStereoApp/.DS_Store
 *.pyc
+breakTheStereoApp/*.pyc
