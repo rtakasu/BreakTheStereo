@@ -32,7 +32,7 @@ $.ajaxSetup({
 $.ajax({
     type: "POST",
     url: "/bts/addReaction/",
-    data: {"person": 1, "song":1, "emotion": "happy"},
+    data: {"person": 1, "song":1, "emotion": "smile"},
     success: function(data){
       console.log("response back is:" + data);
     }
@@ -44,8 +44,19 @@ $.ajax({
     url: "/bts/history/",
     data: {"person": 1, "song":1},
     success: function(data){
-      console.log(data[1]);
+      console.log(data);
     }
 });
+
+//Get most similar
+$.ajax({
+    type: "GET",
+    url: "/bts/similar/",
+    data: {"person": 2, "song":1},
+    success: function(data){
+      console.log(data);
+    }
+});
+
 
 
