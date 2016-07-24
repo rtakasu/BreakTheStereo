@@ -45,58 +45,84 @@ SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/s-track-boa-1', {
 });
 
 $( "#smileButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"smile")
-		console.log(position,"smile")
+
+	widget1.getCurrentSound(function(song){
+		
+		widget1.getPosition(function(position){
+
+			console.log(position,"smile", song.id)
+			var counter = parseInt($("#smileCounter").text());
+			$("#smileCounter").text(counter+1)
+
+			//postEmotion(position,"smile")
+
+		})
 	})
 });
 
 $( "#cryButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
+		var song = getCurrentSong();
 		//postEmotion(position,"cry")
 		console.log(position,"cry")
+		var counter = parseInt($("#cryCounter").text());
+		$("#cryCounter").text(counter+1)
 	})
 });
 
 $( "#aversionButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
+		var song = getCurrentSong();
 		//postEmotion(position,"aversion")
 		console.log(position,"aversion")
+		var counter = parseInt($("#aversionCounter").text());
+		$("#aversionCounter").text(counter+1)
 	})
 });
 
 $( "#danceButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
+		var song = getCurrentSong();
 		//postEmotion(position,"dance")
 		console.log(position,"dance")
+		var counter = parseInt($("#danceCounter").text());
+		$("#danceCounter").text(counter+1)
 	})
 });
 
 $( "#chillButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
+		var song = getCurrentSong();
 		//postEmotion(position,"chill")
 		console.log(position,"chill")
+		var counter = parseInt($("#chillCounter").text());
+		$("#chillCounter").text(counter+1)
 	})
 });
 
 $( "#rockButton" ).click(function() {
 	widget1.getPosition(function(position){
-			
+		
+		var song = getCurrentSong();
 		//postEmotion(position,"rock")
 		console.log(position,"rock")
+		var counter = parseInt($("#rockCounter").text());
+		$("#rockCounter").text(counter+1)
 	})
 });
 
 $( "#romanticButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
+		var song = getCurrentSong();
 		//postEmotion(position,"romantic")
-		console.log(position,"romantic")
+		console.log(position,"romantic", song)
+		var counter = parseInt($("#romanticCounter").text());
+		$("#romanticCounter").text(counter+1)
 	})
 });
 
@@ -118,8 +144,6 @@ function postEmotion(position, emotion) {
 	      console.log("response back is:" + data);
 	    }
 	});
-
-
 }
 
 
