@@ -32,13 +32,14 @@
 	</head>
 
 	<body>
-    <div class="col-sm-12" id="header">
-      <img id="logo" src='{% static "breakTheStereoApp/images/logo.png" %}' />
+		<div class="col-sm-12" id="header">
+			<img id="logo" src='{% static "breakTheStereoApp/images/logo.png" %}' />
 			<h1 id="title"> Break The Stereo </h1>
-    </div>
-
-		{% include "breakTheStereoApp/musicWidget.html" %}
-		{% include "breakTheStereoApp/dashboard.html" %}
+		</div>
+		<div id="content">
+			{% include "breakTheStereoApp/musicWidget.html" %}
+			{% include "breakTheStereoApp/dashboard.html" %}
+		</div>
     	
 		<script src= '{% static "breakTheStereoApp/app.js" %}'></script>
 		<script src= '{% static "breakTheStereoApp/test.js" %}'></script>
