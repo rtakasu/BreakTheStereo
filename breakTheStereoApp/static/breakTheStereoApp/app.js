@@ -44,11 +44,35 @@ SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
 	widget1 = SC.Widget(iframeElement);
 });
 
-$( "#happyButton" ).click(function() {
+$( "#smileButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
-		//postEmotion(position,"happy")
-		console.log(position,"happy")
+		//postEmotion(position,"smile")
+		console.log(position,"smile")
+	})
+});
+
+$( "#cryButton" ).click(function() {
+	widget1.getPosition(function(position){
+			
+		//postEmotion(position,"cry")
+		console.log(position,"cry")
+	})
+});
+
+$( "#aversionButton" ).click(function() {
+	widget1.getPosition(function(position){
+			
+		//postEmotion(position,"aversion")
+		console.log(position,"aversion")
+	})
+});
+
+$( "#danceButton" ).click(function() {
+	widget1.getPosition(function(position){
+			
+		//postEmotion(position,"dance")
+		console.log(position,"dance")
 	})
 });
 
@@ -60,37 +84,22 @@ $( "#chillButton" ).click(function() {
 	})
 });
 
-$( "#peacefulButton" ).click(function() {
+$( "#rockButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
-		//postEmotion(position,"peaceful")
-		console.log(position,"peaceful")
+		//postEmotion(position,"rock")
+		console.log(position,"rock")
 	})
 });
 
-$( "#runButton" ).click(function() {
+$( "#romanticButton" ).click(function() {
 	widget1.getPosition(function(position){
 			
-		//postEmotion(position,"run")
-		console.log(position,"run")
+		//postEmotion(position,"romantic")
+		console.log(position,"romantic")
 	})
 });
 
-$( "#singButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"sing")
-		console.log(position,"sing")
-	})
-});
-
-$( "#danceButton" ).click(function() {
-	widget1.getPosition(function(position){
-			
-		//postEmotion(position,"dance")
-		console.log(position,"dance")
-	})
-});
 
 function postEmotion(position, emotion) {
 
