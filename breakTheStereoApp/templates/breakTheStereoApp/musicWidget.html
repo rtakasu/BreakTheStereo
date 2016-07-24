@@ -1,0 +1,21 @@
+<div class="col-sm-6" id="putTheWidgetHere"></div>
+  <script type="text/javascript">
+
+      var widget1
+
+      SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
+      element: document.getElementById('putTheWidgetHere'),
+      show_comments:false,
+      show_user:false,
+      show_playcount:false,
+      default_height:1000,
+      buying:false,
+      sharing:false,
+      download:false
+
+    }).then(function(embed){
+        var iframeElement   = document.querySelector('iframe');
+          widget1 = SC.Widget(iframeElement);
+    });
+
+  </script>

@@ -2,8 +2,10 @@
 <html>
 
 	<head>
-		<title></title>
+		<title>Break the Stereo</title>
 		{% load staticfiles %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 		<script>
@@ -21,27 +23,8 @@
 
 		<h1> Break The Stereo </h1>
 
-		<div style="width:50%;" id="putTheWidgetHere"></div>
-		<script type="text/javascript">
-
-		  	var widget1
-
-		  	SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/chill', {
-				element: document.getElementById('putTheWidgetHere'),
-				show_comments:false,
-				show_user:false,
-				show_playcount:false,
-				default_height:1000,
-				buying:false,
-				sharing:false,
-				download:false
-
-			}).then(function(embed){
-			  	var iframeElement   = document.querySelector('iframe');
-		        widget1 = SC.Widget(iframeElement);
-			});
-
-		</script>
+		{% include "breakTheStereoApp/musicWidget.html" %}
+    {% include "breakTheStereoApp/dashboard.html" %}
 
 	</body>
 
