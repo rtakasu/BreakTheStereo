@@ -190,10 +190,13 @@ function loadSimilar(){
 
 	    	$("#person1Name").text(data[0]["name"])
 	    	$("#person1Score").text(data[0]["score"])
+			$("#person1Pic").attr('src', data[0]["profile_pic"])
 	    	$("#person2Name").text(data[1]["name"])
 	    	$("#person2Score").text(data[1]["score"])
+			$("#person2Pic").attr('src', data[1]["profile_pic"])
 	    	$("#person3Name").text(data[2]["name"])
 	    	$("#person3Score").text(data[2]["score"])
+			$("#person3Pic").attr('src', data[2]["profile_pic"])
 
 	    	console.log(data)
 
@@ -216,6 +219,82 @@ function postEmotion(song, emotion) {
 	});
 	
 }
+
+// Populating Database
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":254216170,"name": "Rhapsody in Blue","artist": "George Gershwin", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+// Populating Database
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":65833474,"name": "Fur Elise","artist": "Ludwig van Beethoven", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+// Populating Database
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":256281321,"name": "No More Parties in LA","artist": "Kanye West", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+// Populating Database
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":271381951,"name": "The Jam","artist": "Logic", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":271224728,"name": "Cool","artist": "Alesso", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":78726841,"name": "You Want Me","artist": "Justin Bieber", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":257084383,"name": "Notorious Thugs","artist": "Notorious BIG", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
+
+$.ajax({
+   type: "POST",
+   url: "/bts/addSong/",
+   data: {"song":48836861,"name": "Buffalo Soldier","artist": "Bob Marley", "genre":"Classical"},
+   success: function(data){
+     console.log(data);
+   }
+});
 
 
 
