@@ -5,6 +5,8 @@ from django.template import loader
 from .models import Song,Person,Reaction
 from django.utils import timezone
 import json
+from django.core import serializers
+from django.http import JsonResponse
 # Create your views here.
 def index(request):
   songs = Song.objects.all()
@@ -41,4 +43,53 @@ def addReaction(request):
     return HttpResponse(status=201)
   else:
     return redirect("/bts")
+
+# Gets Reaction History
+def reactionHistory(request):
+  if request.method == "GET":
+    person = get_object_or_404(Person,pk = request.GET["person"])
+    song = get_object_or_404(Song,pk = request.GET["song"])
+    reactions = person.reaction_set.filter(song_id=song.id)
+    rz = {}
+    for i in range(len(reactions)):
+      r = reactions[i]
+      rz[i] = {"emotion": r.emotion,"song_id":r.song_id,"person_id":r.person_id}
+    return JsonResponse(rz)
+
+# Get "Stats/demographics" for song
+AGE_RANGE = 5
+
+def differentDemoScore(person,other):
+  score = 0
+  if person.name != other.name:
+    score += 1
+  if abs(person.age - other.age) > AGE_RANGE:
+    score += 1
+  if person.race != other.race:
+    score += 1
+  if person.gender != other.gender:
+    score += 1
+  if person.region != other.region:
+    score += 1
+  return score
+
+def similarMusicScore(person,other):
+  score = 0
+  songs = person.song_set.distinct()
+  # for each song that person 1 has listened to, compare person 1's reactions against person 2's
+  for song in songs:
+    personReactions = song.reaction_set.all().filter(person_id = person.id)
+    otherReactions = song.reaction_set.all().filter(person_id = other.id)
+
+  if
+
+# Get Suggested/similar users
+def similar(request):
+  #Create distance score between user and other users
+  others = Person.objects.all().exclude(pk=request.GET["person"])
+
+
+
+
+
 

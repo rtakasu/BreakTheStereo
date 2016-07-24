@@ -36,6 +36,15 @@ class Song(models.Model):
 class Reaction(models.Model):
   person = models.ForeignKey(Person, on_delete=models.CASCADE)
   song = models.ForeignKey(Song, on_delete=models.CASCADE)
+  EMOTION_CHOICES = (
+    ("smile","smile"),
+    ("cry","cry"),
+    ("angry","angry"),
+    ("dance","dance"),
+    ("chill","chill"),
+    ("rock","rock"),
+    ("romantic","romantic")
+  )
   emotion = models.CharField(max_length = 100)
   created_at = models.DateTimeField('reacted at')
   def __str__(self):
