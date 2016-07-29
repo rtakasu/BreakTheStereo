@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.template import loader
 
 from .models import Song,Person,Reaction
@@ -46,6 +46,7 @@ def addSong(request):
     return redirect("/bts")
 
 def addReaction(request):
+  print "Trying to add reaction"
   if request.method == "POST":
 
     person = get_object_or_404(Person,pk = request.POST["person"])
@@ -80,7 +81,7 @@ def addReaction(request):
         reaction.rock += 1
       elif emotion_name == "romantic":
         reaction.romantic += 1
-
+      print "REACTION saved"
       reaction.save()
       #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
       return HttpResponse(status=201)
@@ -92,9 +93,14 @@ def reactionHistory(request):
   if request.method == "GET":
     person = get_object_or_404(Person,pk = request.GET["person"])
     song = get_object_or_404(Song,pk = request.GET["song"])
-    r = person.reaction_set.filter(song_id=song.id)[0]
-    reaction = {"smile":r.smile,"cry":r.cry,"angry":r.angry,"dance":r.dance,"rock":r.rock,"chill":r.chill,"romantic":r.romantic}
-    return JsonResponse(reaction)
+    r = person.reaction_set.filter(song_id=song.id)
+    if r:
+      r = r[0]
+      reaction = {"smile":r.smile,"cry":r.cry,"angry":r.angry,"dance":r.dance,"rock":r.rock,"chill":r.chill,"romantic":r.romantic}
+      return JsonResponse(reaction)
+    else:
+      print "History for "+song.name + " not found"
+      return HttpResponseNotFound('<h1>History not found</h1>')
 
 # Get "Stats/demographics" for song
 AGE_RANGE = 5

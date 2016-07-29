@@ -28,7 +28,9 @@ $.ajaxSetup({
     }
 });
 
-var widget1
+var widget1;
+
+var USERID = 2;
 
 SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/breakthestereo', {
 	element: document.getElementById('putTheWidgetHere'),
@@ -144,7 +146,7 @@ function loadReactionData(songId) {
 	$.ajax({
 	    type: "GET",
 	    url: "/bts/history/",
-	    data: {"person": 1, "song":songId},
+	    data: {"person": USERID, "song":songId},
 	    success: function(data){
 	      
 	    	$("#smileCounter").text(data["smile"])
@@ -185,7 +187,7 @@ function loadSimilar(){
 	$.ajax({
 	    type: "GET",
 	    url: "/bts/similar/",
-	    data: {"person": 2},
+	    data: {"person": USERID},
 	    success: function(data){
 
 	    	$("#person1Name").text(data[0]["name"])
@@ -212,7 +214,7 @@ function postEmotion(song, emotion) {
 	$.ajax({
 	    type: "POST",
 	    url: "/bts/addReaction/",
-	    data: {"person": 1, "song":song, "emotion": emotion},
+	    data: {"person": USERID, "song":song, "emotion": emotion},
 	    success: function(data){
 	      console.log("response back is:" + data);
 	    }

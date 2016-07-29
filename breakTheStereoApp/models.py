@@ -57,5 +57,5 @@ class Reaction(models.Model):
   # emotion = models.CharField(max_length = 100)
   created_at = models.DateTimeField('reacted at')
   def __str__(self):
-    return "smiles: " + str(self.smile)
+    return str(self.person.name) + "," + str(self.song.name)
 
