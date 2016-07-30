@@ -31,6 +31,7 @@ $.ajaxSetup({
 var widget1;
 
 var USERID = 2;
+var TOPSCORE = 8;
 
 SC.oEmbed('https://soundcloud.com/rafael-takasu/sets/breakthestereo', {
 	element: document.getElementById('putTheWidgetHere'),
@@ -191,13 +192,13 @@ function loadSimilar(){
 	    success: function(data){
 
 	    	$("#person1Name").text(data[0]["name"])
-	    	$("#person1Score").text(data[0]["score"])
+	    	$("#person1Score").text(Math.round((data[0]["score"]/TOPSCORE)*1000)/10 + "%" )
 			$("#person1Pic").css('background-image', "url('" + data[0]["profile_pic"] + "')")
 	    	$("#person2Name").text(data[1]["name"])
-	    	$("#person2Score").text(data[1]["score"])
+	    	$("#person2Score").text(Math.round((data[1]["score"]/TOPSCORE)*1000)/10 + "%" )
 			$("#person2Pic").css('background-image', "url('" + data[1]["profile_pic"] + "')")
 	    	$("#person3Name").text(data[2]["name"])
-	    	$("#person3Score").text(data[2]["score"])
+	    	$("#person3Score").text(Math.round((data[2]["score"]/TOPSCORE)*1000)/10 + "%" )
 			$("#person3Pic").css('background-image', "url('" + data[2]["profile_pic"] + "')")
 
 	    	console.log(data)

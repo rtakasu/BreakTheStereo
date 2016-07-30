@@ -121,6 +121,8 @@ def differentDemoScore(person,other):
 def normalizedArray(reaction):
   arr = [reaction.smile,reaction.cry,reaction.angry,reaction.dance,reaction.rock,reaction.chill,reaction.romantic]
   total = sum(arr)
+  if total == 0:
+    return arr
   for i in range(len(arr)):
     arr[i] = float(arr[i])/float(total)
   return arr
