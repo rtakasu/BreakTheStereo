@@ -168,7 +168,7 @@ function loadReactionData(songId) {
 	    }
 	});
 
-	console.log(songId)
+	console.log("reaction data loaded for: " + songId)
 
 }
 
@@ -217,6 +217,8 @@ function postEmotion(song, emotion) {
 	    data: {"person": USERID, "song":song, "emotion": emotion},
 	    success: function(data){
 	      console.log("response back is:" + data);
+        console.log("now calling load similar")
+        loadSimilar()
 	    }
 	});
 	

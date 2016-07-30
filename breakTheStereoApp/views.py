@@ -40,10 +40,8 @@ def addSong(request):
     if song:
       song.save()
       return HttpResponse(status=201)
-    else:
-      return Http404("Invalid Song")
   else:
-    return redirect("/bts")
+    return HttpResponseNotFound("Get method")
 
 def addReaction(request):
   print "Trying to add reaction"
@@ -86,7 +84,7 @@ def addReaction(request):
       #return HttpResponse(json.dumps({'name': name}), content_type="application/json")
       return HttpResponse(status=201)
   else:
-    return redirect("/bts")
+    return HttpResponseNotFound("Need post method")
 
 # Gets Reaction History
 def reactionHistory(request):
@@ -134,11 +132,13 @@ def similarMusicScore(person,other):
   # for each song that person 1 has listened to, compare person 1's reactions against person 2's
   for song in songs:
     personReaction = song.reaction_set.all().filter(person_id = person.id)[0]
-    otherReaction = song.reaction_set.all().filter(person_id = other.id)[0]
-    pArray = normalizedArray(personReaction)
-    oArray = normalizedArray(otherReaction)
-    diff = sum([ abs(pArray[i]-oArray[i]) for i in range(len(pArray))])
-    score += diff
+    otherReactions = song.reaction_set.all().filter(person_id = other.id)
+    if otherReactions:
+      otherReaction = otherReactions[0]
+      pArray = normalizedArray(personReaction)
+      oArray = normalizedArray(otherReaction)
+      diff = sum([ abs(pArray[i]-oArray[i]) for i in range(len(pArray))])
+      score += diff
   return score
 
 
@@ -150,6 +150,8 @@ def similar(request):
   scores = []
   for other in others:
     similarScore = differentDemoScore(person,other) - similarMusicScore(person,other)
+    print "\n"
+    print "name,simscore,diff,simMusic,",other.name,similarScore ,differentDemoScore(person,other),similarMusicScore(person,other)
     scores.append((other,similarScore))
 
   ordered = sorted(scores, key=lambda x: x[1])
@@ -160,7 +162,8 @@ def similar(request):
   jsonRes = {}
   for i in range(len(topFive)):
     p = topFive[i][0]
-    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url }
+    score = topFive[i][1]
+    jsonRes[i] = {"name":p.name,"age":p.age,"gender":p.gender,"race":p.race,"region":p.region, "profile_pic":p.profile_pic_url, "score":score }
   return JsonResponse(jsonRes)
 
 
